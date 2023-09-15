@@ -9,9 +9,15 @@ export default function StatsContainer() {
         .then(data => setPlaterStats(data.data))
     }, [])
 
+    console.log(playerStats)
+
+    const playerDisplay = playerStats.map(player => {
+        return <Text>{player.last_name}, {player.first_name}</Text>
+    })
+
     return(
         <View>
-            <Text>This is the Stats Container</Text>
+            {playerDisplay}
         </View>
     )
 }
