@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default function StatsContainer() {
     const [playerStats, setPlaterStats] = useState([])
@@ -17,6 +17,7 @@ export default function StatsContainer() {
 
     return(
         <View>
+            <TextInput />
             {playerDisplay}
         </View>
     )
