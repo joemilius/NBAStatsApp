@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
+import StatsCard from './StatsCard';
 
 export default function StatsContainer() {
     const [playerStats, setPlaterStats] = useState([])
@@ -9,10 +10,10 @@ export default function StatsContainer() {
         .then(data => setPlaterStats(data.data))
     }, [])
 
-    console.log(playerStats)
+    
 
     const playerDisplay = playerStats.map(player => {
-        return <Text>{player.last_name}, {player.first_name}</Text>
+        return <StatsCard lastName={player.last_name} firstName = {player.first_name}/>
     })
 
     return(

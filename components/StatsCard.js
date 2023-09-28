@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function StatsCard() {
+export default function StatsCard({firstName, lastName}) {
 
     return(
         <View>
-            <Text>This is the Stats Container</Text>
+            <Text>{firstName}{lastName}</Text>
         </View>
     )
 }
