@@ -4,7 +4,7 @@ export default function StatsCard({firstName, lastName}) {
 
     return(
         <View>
-            <Text>{firstName}{lastName}</Text>
+            <Text>{lastName}, {firstName}</Text>
         </View>
     )
 }
