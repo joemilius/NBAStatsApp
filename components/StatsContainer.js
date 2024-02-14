@@ -5,6 +5,7 @@ import StatsCard from './StatsCard';
 export default function StatsContainer() {
     const [playerStats, setPlaterStats] = useState([])
     const [nameSearch, setNameSearch] = useState('')
+    const [showCard, setShowCard] = useState(false)
 
     useEffect(() => {
         fetch(`https://www.balldontlie.io/api/v1/players`)
@@ -16,19 +17,26 @@ export default function StatsContainer() {
         setNameSearch(newText)
     }
 
-    const filteredPlayers = playerStats.filter((player) => {
+    const seearchedPlayers = playerStats.filter((player) => {
         if (nameSearch === '') return true
-        return `${player.first_name} ${player.last_name}`.toLowerCase().includes(nameSearch)
+        return `${player.first_name} ${player.last_name}`.toLowerCase().includes(nameSearch.toLowerCase())
     })
 
-    const playerDisplay = playerStats.map(player => {
-        return <StatsCard lastName={player.last_name} firstName = {player.first_name}/>
+    const playerDisplay = seearchedPlayers.map(player => {
+        return (
+            <View>
+                <Text>{lastName}, {firstName}</Text>
+            </View>
+        )
     })
 
     return(
         <View>
             <TextInput onChangeText={handleSearch}/>
-            {playerDisplay}
+            {showCard ? 
+            <StatsCard />
+            :
+            playerDisplay}
         </View>
     )
 }
