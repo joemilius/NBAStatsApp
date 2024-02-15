@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function StatsCard({firstName, lastName}) {
+export default function StatsCard({selectedPlayer}) {
 
     return(
         <View>
-            <Text>{lastName}, {firstName}</Text>
+            <Text>{selectedPlayer.lastName}, {selectedPlayer.firstName}</Text>
         </View>
     )
 }
