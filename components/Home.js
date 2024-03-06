@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 import {NBA_API_KEY} from '@env'
 
 
@@ -16,7 +16,7 @@ export default function Home(){
             }
         })
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => setPlayers(data))
         .catch(error => console.log(error))
     }, [])
     console.log(process.env.NBA_API_KEY)
@@ -34,11 +34,21 @@ export default function Home(){
     return(
         <View>
            
-            <Pressable><Text>Top Points</Text></Pressable>
-            <Pressable><Text>Top Rebounds</Text></Pressable>
-            <Pressable><Text>Top Assists</Text></Pressable>
-            <Pressable><Text>Top Steals</Text></Pressable>
-            <Pressable><Text>Top Blocks</Text></Pressable>
+            <Button
+            title="Top Points"
+            />
+            <Button
+            title="Top Rebounds"
+            />
+            <Button
+            title="Top Assists"
+            />
+            <Button
+            title="Top Steals"
+            />
+            <Button
+            title="Top Blocks"
+            />
         </View>
     )
 }
