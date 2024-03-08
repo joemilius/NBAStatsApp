@@ -17,7 +17,7 @@ export default function Home(){
     //stats endpoint gives individual stats for a game not total for season 
     //decide if season is what to figure out or do top in last 7 days
     useEffect(() => {
-        fetch(`https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2023?key=50567f38090849899283c5d9ffd1f55a`,{
+        fetch(`https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStats/2024?key=50567f38090849899283c5d9ffd1f55a`,{
             headers:{
                 'Ocp-Apim-Subscription-Key': NBA_API_KEY,
             }
@@ -32,10 +32,8 @@ export default function Home(){
     function showLists(listType){
         setListObj({...listObj, [listType]: !listObj[listType]})
     }
-    console.log(listObj)
 
-    const topPoints = [...players].sort((a,b) => a["Points"] - b["Points"])
-    console.log(topPoints.slice(0, 10))
+    const topPoints = [...players].sort((a,b) => b["Points"] - a["Points"])
 
     const topRebounds = [...players]
 
@@ -52,8 +50,11 @@ export default function Home(){
             title="Top Points"
             onPress={(e)=> showLists("Top Points")}
             />
-            {listObj["Top Points"] ? 
-            <Text>Points</Text>: null}
+            {listObj["Top Points"] ?
+            topPoints.slice(0, 10).map(player => {
+                return <Text key={player["PlayerID"]}>{`${player["Name"]}: ${parseInt(player["Points"])} total points`}</Text>
+            })
+            : null}
             <Button
             title="Top Rebounds"
             onPress={(e)=> showLists("Top Rebounds")}
