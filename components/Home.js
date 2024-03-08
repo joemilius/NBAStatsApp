@@ -26,15 +26,16 @@ export default function Home(){
         .then(data => setPlayers(data))
         .catch(error => console.log(error))
     }, [])
-    console.log(NBA_API_KEY)
-    console.log(process.env.NBA_API_KEY)
+    console.log(players[0])
+    
 
     function showLists(listType){
         setListObj({...listObj, [listType]: !listObj[listType]})
     }
     console.log(listObj)
 
-    const topPoints = [...players]
+    const topPoints = [...players].sort((a,b) => a["Points"] - b["Points"])
+    console.log(topPoints.slice(0, 10))
 
     const topRebounds = [...players]
 
