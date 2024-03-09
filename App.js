@@ -6,7 +6,7 @@ import Home from './components/Home.js'
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View >
        <Home styles={styles}/>
     </View>
   );
