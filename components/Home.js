@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-native';
 import {NBA_API_KEY} from '@env'
 
 
@@ -59,36 +59,37 @@ export default function Home(){
         <View style={{flexDirection:'row'}}>
             <View style={homeStyles.buttonContainer}>
                 <View style={homeStyles.topButtonContainer}>
-                    <Button
-                    title="Top Points"
-                    color={listObj["Top Points"] ? 'red' : 'blue'}
-                    buttonStyle={homeStyles.topButtons}
-                    onPress={(e)=> showLists("Top Points")}
-                    />
-                    <Button
+                    <Pressable
+                    style={homeStyles.topButtons}
+                    onPress={(e)=> showLists("Top Points")}>
+                        <Text>Top Points</Text>
+                    </Pressable>
+                    <Pressable
                     title="Top Rebounds"
                     color={listObj["Top Rebounds"] ? 'red' : 'blue'}
                     buttonStyle={homeStyles.topButtons}
                     onPress={(e)=> showLists("Top Rebounds")}
-                    />
-                    <Button
-                    title="Top Assists"
-                    color={listObj["Top Assists"] ? 'red' : 'blue'}
+                    >
+                        <Text>Top Rebounds</Text>
+                    </Pressable>
+                    <Pressable
                     buttonStyle={homeStyles.topButtons}
                     onPress={(e)=> showLists("Top Assists")}
-                    />
-                    <Button
-                    title="Top Steals"
-                    color={listObj["Top Steals"] ? 'red' : 'blue'}
+                    >
+                        <Text>Top Assists</Text>
+                    </Pressable>
+                    <Pressable
                     buttonStyle={homeStyles.topButtons}
                     onPress={(e)=> showLists("Top Steals")}
-                    />
-                    <Button
-                    title="Top Blocks"
-                    color={listObj["Top Blocks"] ? 'red' : 'blue'}
+                    >
+                        <Text>Top Steals</Text>
+                    </Pressable>
+                    <Pressable
                     buttonStyle={homeStyles.topButtons}
                     onPress={(e)=> showLists("Top Blocks")}
-                    />
+                    >
+                        <Text>Top Blocks</Text>
+                    </Pressable>
                 </View>
             </View>
             <View style={homeStyles.playerList}>
