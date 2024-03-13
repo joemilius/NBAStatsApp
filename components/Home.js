@@ -56,41 +56,37 @@ export default function Home(){
     const topBlocks = [...players].sort((a,b) => b["BlockedShots"] - a["BlockedShots"])
 
     return(
-        <View style={{flexDirection:'row'}}>
-            <View style={homeStyles.buttonContainer}>
-                <View style={homeStyles.topButtonContainer}>
-                    <Pressable
-                    style={homeStyles.topButtons}
-                    onPress={(e)=> showLists("Top Points")}>
-                        <Text>Top Points</Text>
-                    </Pressable>
-                    <Pressable
-                    title="Top Rebounds"
-                    color={listObj["Top Rebounds"] ? 'red' : 'blue'}
-                    buttonStyle={homeStyles.topButtons}
-                    onPress={(e)=> showLists("Top Rebounds")}
-                    >
-                        <Text>Top Rebounds</Text>
-                    </Pressable>
-                    <Pressable
-                    buttonStyle={homeStyles.topButtons}
-                    onPress={(e)=> showLists("Top Assists")}
-                    >
-                        <Text>Top Assists</Text>
-                    </Pressable>
-                    <Pressable
-                    buttonStyle={homeStyles.topButtons}
-                    onPress={(e)=> showLists("Top Steals")}
-                    >
-                        <Text>Top Steals</Text>
-                    </Pressable>
-                    <Pressable
-                    buttonStyle={homeStyles.topButtons}
-                    onPress={(e)=> showLists("Top Blocks")}
-                    >
-                        <Text>Top Blocks</Text>
-                    </Pressable>
-                </View>
+        <View style={{flexDirection:'column'}}>
+            <View style={homeStyles.topButtonContainer}>
+                <Pressable
+                style={listObj["Top Points"] ? homeStyles.pressedTopButtons : homeStyles.topButtons}
+                onPress={(e)=> showLists("Top Points")}>
+                    <Text style={homeStyles.buttonText}>Top Points</Text>
+                </Pressable>
+                <Pressable
+                style={listObj["Top Rebounds"] ? homeStyles.pressedTopButtons : homeStyles.topButtons}
+                onPress={(e)=> showLists("Top Rebounds")}
+                >
+                    <Text style={homeStyles.buttonText}>Top Rebounds</Text>
+                </Pressable>
+                <Pressable
+                style={listObj["Top Assists"] ? homeStyles.pressedTopButtons : homeStyles.topButtons}
+                onPress={(e)=> showLists("Top Assists")}
+                >
+                    <Text style={homeStyles.buttonText}>Top Assists</Text>
+                </Pressable>
+                <Pressable
+                style={listObj["Top Steals"] ? homeStyles.pressedTopButtons : homeStyles.topButtons}
+                onPress={(e)=> showLists("Top Steals")}
+                >
+                    <Text style={homeStyles.buttonText}>Top Steals</Text>
+                </Pressable>
+                <Pressable
+                style={listObj["Top Blocks"] ? homeStyles.pressedTopButtons : homeStyles.topButtons}
+                onPress={(e)=> showLists("Top Blocks")}
+                >
+                    <Text style={homeStyles.buttonText}>Top Blocks</Text>
+                </Pressable>
             </View>
             <View style={homeStyles.playerList}>
                 <Text>Player List</Text>
@@ -126,39 +122,40 @@ export default function Home(){
 
 }
 const homeStyles = StyleSheet.create({
-    buttonContainer:{
-        flex:1,
-        // display:'flex',
-        marginTop: 20,
-        justifyContent:'flex-start',
-        borderColor:'blue',
-        borderTopWidth:2,
-        borderLeftWidth:2,
-        borderBottomWidth:2,
-        
-    },
     topButtonContainer:{
         // display:'flex',
-        flexDirection: 'column',
-        justifyContent:'flex-start',
-        width:100,
+        marginTop: 20,
+        flexDirection: 'row',
+        justifyContent:'center',
+        
         
     },
     topButtons:{
         textAlign:'center',
-        borderColor:'red',
-        borderWidth:2
+        backgroundColor: 'blue',
+        borderRadius: 4,
+        marginLeft:2,
+        
+    },
+    pressedTopButtons:{
+        textAlign:'center',
+        backgroundColor: 'red',
+        borderRadius: 4,
+    },
+    buttonText:{
+        textAlign: 'center',
+        color: 'white',
+        
     },
     playerList:{
         marginTop:20,
-        width:275,
+        // width:275,
         borderColor:'blue',
-        borderWidth:2
-
-        
-
+        borderWidth:2,
+        borderRadius: 8,
     },
     playerListHeader:{
-        marginRight:60
+        marginRight:60,
+        textAlign:'center'
     }
 })
