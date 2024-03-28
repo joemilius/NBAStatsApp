@@ -1,19 +1,22 @@
 import React, {useState, useEffect} from 'react';
-import { TouchableOpacity, StyleSheet, Text, View, TextInput } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View, TextInput, Button} from 'react-native';
 //import { Router, Scene } from 'react-native-router-flux'
 import StatsContainer from './StatsContainer';
 import Home from './Home'
 
-export default function Routes(){
+export default function Routes({navigation}){
 
     return(
-        // <Router>
-        //     <Scene key='root'>
-        //         <Scene key = 'home' component = {Home} title = "Home" initial = {true}/>
-        //     </Scene>
-        // </Router>
         <View>
-            <Home />
+            <Button 
+                title="Season Leaders"
+                onPress={() => navigation.navigate('Home', {name: 'Home'})}
+            />
+            <Button 
+                title="Player Stats"
+                onPress={() => navigation.navigate('Players', {name: 'Players'})}
+            />
         </View>
+
     )
 }

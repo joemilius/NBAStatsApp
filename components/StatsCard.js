@@ -4,7 +4,7 @@ export default function StatsCard({selectedPlayer}) {
 
     return(
         <View>
-            <Text>{selectedPlayer.lastName}, {selectedPlayer.firstName}</Text>
+            <Text>{selectedPlayer["Name"]}</Text>
         </View>
     )
 }
