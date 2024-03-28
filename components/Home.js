@@ -150,6 +150,7 @@ const homeStyles = StyleSheet.create({
     playerList:{
         marginTop:20,
         // width:275,
+        flexDirection: 'center',
         borderColor:'blue',
         borderWidth:2,
         borderRadius: 8,
