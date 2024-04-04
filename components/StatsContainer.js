@@ -35,7 +35,7 @@ export default function StatsContainer() {
 
     const playerDisplay = searchedPlayers.slice(0,20).map(player => {
         return (
-            <View>
+            <View key={player["Name"]}>
                 <Pressable onPress={() => handlePlayerPress(player)}>
                 <Text>{player["Name"]}</Text>
                 </Pressable>
@@ -44,12 +44,28 @@ export default function StatsContainer() {
     })
 
     return(
-        <View>
-            <TextInput onChangeText={handleSearch}/>
+        <View style={playerStyles.playerListContainer}>
+            <Text>Search Player</Text>
+            <TextInput style={playerStyles.searchStyle} onChangeText={handleSearch}/>
             {showCard ? 
             <StatsCard selectedPlayer={selectedPlayer}/>
             :
-            playerDisplay}
+            <View style={playerStyles.playerListContainer}>
+            {playerDisplay}
+            <Text>...</Text>
+            </View>}
         </View>
     )
 }
+
+const playerStyles = StyleSheet.create({
+    playerListContainer: {
+        marginTop: 20,
+    },
+    searchStyle:{
+        borderColor: "blue",
+        borderWidth: 2,
+        borderRadius: 4,
+        width: 200
+    }
+})
