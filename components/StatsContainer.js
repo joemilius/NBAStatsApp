@@ -50,7 +50,7 @@ export default function StatsContainer() {
             <Text>Search Player</Text>
             <TextInput style={playerStyles.searchStyle} onChangeText={handleSearch}/>
             {showCard ? 
-            <StatsCard selectedPlayer={selectedPlayer}/>
+            <StatsCard selectedPlayer={selectedPlayer} showCard={showCard} setShowCard={setShowCard}/>
             :
             <View style={playerStyles.playerListContainer}>
             {playerDisplay}
