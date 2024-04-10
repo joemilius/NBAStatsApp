@@ -5,7 +5,7 @@ import {NBA_API_KEY} from '@env'
 
 
 
-export default function Home(){
+export default function SeasonLeaders(){
     const [players, setPlayers] = useState([])
     const [listObj, setListObj] = useState({
         "Top Points": false,

@@ -7,10 +7,20 @@ import WestStandings from './WestStandings';
 export default function TeamStandings(){
     const [standingsToggle, setStandingsToggle] = useState('East')
 
+    function handleEastWestToggle(division){
+        setStandingsToggle(division)
+    }
+
     return(
         <View>
-            <Text>East Standings</Text>
-            <Text>West Standings</Text>
+            <View>
+                <Pressable onPress={() => handleEastWestToggle('East')}>
+                    <Text>East Standings</Text>
+                </Pressable>
+                <Pressable onPress={() => handleEastWestToggle('West')}>
+                    <Text>West Standings</Text>
+                </Pressable>
+            </View>
             {standingsToggle === 'East'? <EastStandings />: <WestStandings />}
 
         </View>

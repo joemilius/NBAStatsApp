@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { TouchableOpacity, StyleSheet, Text, View, TextInput, Button} from 'react-native';
 //import { Router, Scene } from 'react-native-router-flux'
 import StatsContainer from './StatsContainer';
-import Home from './Home'
+import SeasonLeaders from './SeasonLeaders'
 
 export default function Routes({navigation}){
 
@@ -10,7 +10,7 @@ export default function Routes({navigation}){
         <View>
             <Button 
                 title="Season Leaders"
-                onPress={() => navigation.navigate('Home', {name: 'Home'})}
+                onPress={() => navigation.navigate('SeasonLeaders', {name: 'SeasonLeaders'})}
             />
             <Button 
                 title="Player Stats"
