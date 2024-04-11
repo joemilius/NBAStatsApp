@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import StatsContainer from './components/StatsContainer';
 import Routes from './components/Routes.js'
 import SeasonLeaders from './components/SeasonLeaders.js'
+import TeamStandings from './components/TeamStandings.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +14,7 @@ export default function App() {
     <NavigationContainer >
       <Stack.Navigator>
         <Stack.Screen
-          name="NavBar"
+          name="Home"
           component={Routes}
         />
         <Stack.Screen
@@ -23,6 +24,10 @@ export default function App() {
         <Stack.Screen 
           name="Players"
           component={StatsContainer}
+        />
+        <Stack.Screen 
+          name="TeamStandings"
+          component={TeamStandings}
         />
       </Stack.Navigator>
     </NavigationContainer>
