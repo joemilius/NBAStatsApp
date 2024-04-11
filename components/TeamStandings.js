@@ -6,10 +6,22 @@ import WestStandings from './WestStandings';
 
 export default function TeamStandings(){
     const [standingsToggle, setStandingsToggle] = useState('East')
+    const [standings, setStandings] = useState([])
 
-    function handleEastWestToggle(division){
-        setStandingsToggle(division)
+    useEffect(() => {
+        fetch(`https://api.sportsdata.io/v3/nba/scores/json/Standings/2024?key=50567f38090849899283c5d9ffd1f55a`)
+        .then(resp => resp.json())
+        .then(data => {
+            console.log(data[3])
+        })
+    }, [])
+
+    function handleEastWestToggle(conference){
+        setStandingsToggle(conference)
     }
+
+    const eastStandings = standings.filter(team => team["Conference"] === 'Eastern').sort((teamA, teamB) => teamA['Wins'] - teamB['Wins'])
+    const westStandings = standings.filter(team => team['Conference'] === 'Western').sort((teamA, teamB) => teamA['Wins'] - teamB['Wins'])
 
     return(
         <View>
