@@ -12,7 +12,7 @@ export default function TeamStandings(){
         fetch(`https://api.sportsdata.io/v3/nba/scores/json/Standings/2024?key=50567f38090849899283c5d9ffd1f55a`)
         .then(resp => resp.json())
         .then(data => {
-            console.log(data[3])
+            setStandings(data)
         })
     }, [])
 
@@ -20,9 +20,9 @@ export default function TeamStandings(){
         setStandingsToggle(conference)
     }
 
-    const eastStandings = standings.filter(team => team["Conference"] === 'Eastern').sort((teamA, teamB) => teamA['Wins'] - teamB['Wins'])
-    const westStandings = standings.filter(team => team['Conference'] === 'Western').sort((teamA, teamB) => teamA['Wins'] - teamB['Wins'])
-
+    const eastStandings = standings.filter(team => team["Conference"] === 'Eastern').sort((teamA, teamB) => teamB['Wins'] - teamA['Wins'])
+    const westStandings = standings.filter(team => team['Conference'] === 'Western').sort((teamA, teamB) => teamB['Wins'] - teamA['Wins'])
+    console.log(eastStandings)
     return(
         <View>
             <View>
@@ -33,7 +33,7 @@ export default function TeamStandings(){
                     <Text>West Standings</Text>
                 </Pressable>
             </View>
-            {standingsToggle === 'East'? <EastStandings />: <WestStandings />}
+            {standingsToggle === 'East'? <EastStandings eastStandings={eastStandings}/>: <WestStandings westStandings={westStandings}/>}
 
         </View>
     )
