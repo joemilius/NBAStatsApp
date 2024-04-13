@@ -26,7 +26,7 @@ export default function App() {
           component={StatsContainer}
         />
         <Stack.Screen 
-          name="TeamStandings"
+          name="Team Standings"
           component={TeamStandings}
         />
       </Stack.Navigator>
