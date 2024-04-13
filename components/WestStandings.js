@@ -6,9 +6,9 @@ export default function WestStandings({westStandings}){
 
     const displayTeams = westStandings.map((team) => {
         return (
-            <View>
-                <Text>{team['Name']}</Text>
-                <Text>{team['Wins']}</Text>
+            <View style={westStyles.teamRows}>
+                <Text>{team['Name']} </Text>
+                <Text>{team['Wins']} </Text>
                 <Text>{team['Losses']}</Text>
             </View>
         )
@@ -19,3 +19,9 @@ export default function WestStandings({westStandings}){
         </View>
     )
 }
+
+const westStyles = StyleSheet.create({
+    teamRows: {
+        flexDirection: 'row'
+    }
+})

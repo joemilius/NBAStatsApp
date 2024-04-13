@@ -6,9 +6,9 @@ export default function EastStandings({eastStandings}){
 
     const displayTeams = eastStandings.map((team) => {
         return (
-            <View>
-                <Text>{team['Name']}</Text>
-                <Text>{team['Wins']}</Text>
+            <View key={team['Name']} style={eastStyles.teamRows}>
+                <Text>{team['Name']} </Text>
+                <Text>{team['Wins']} </Text>
                 <Text>{team['Losses']}</Text>
             </View>
         )
@@ -20,3 +20,9 @@ export default function EastStandings({eastStandings}){
         </View>
     )
 }
+
+const eastStyles = StyleSheet.create({
+    teamRows: {
+        flexDirection: 'row',
+    }
+})

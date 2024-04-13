@@ -10,7 +10,7 @@ export default function Routes({navigation}){
         <View>
             <Button 
                 title="Season Leaders"
-                onPress={() => navigation.navigate('SeasonLeaders', {name: 'SeasonLeaders'})}
+                onPress={() => navigation.navigate('Season Leaders', {name: 'SeasonLeaders'})}
             />
             <Button 
                 title="Player Stats"
@@ -18,7 +18,7 @@ export default function Routes({navigation}){
             />
              <Button 
                 title="Team Standings"
-                onPress={() => navigation.navigate('TeamStandings', {name: 'Players'})}
+                onPress={() => navigation.navigate('Team Standings', {name: 'Players'})}
             />
         </View>
 
