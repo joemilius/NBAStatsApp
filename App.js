@@ -6,6 +6,7 @@ import StatsContainer from './components/StatsContainer';
 import Routes from './components/Routes.js'
 import SeasonLeaders from './components/SeasonLeaders.js'
 import TeamStandings from './components/TeamStandings.js';
+import PlayerComparison from './components/PlayerComparison.js'
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,10 @@ export default function App() {
         <Stack.Screen 
           name="Team Standings"
           component={TeamStandings}
+        />
+         <Stack.Screen 
+          name="Player Comparison"
+          component={PlayerComparison}
         />
       </Stack.Navigator>
     </NavigationContainer>
