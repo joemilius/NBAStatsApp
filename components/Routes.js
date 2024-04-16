@@ -20,6 +20,10 @@ export default function Routes({navigation}){
                 title="Team Standings"
                 onPress={() => navigation.navigate('Team Standings', {name: 'Players'})}
             />
+            <Button 
+                title="Player Comparison"
+                onPress={() => navigation.navigate('Player Comparison', {name: 'Players'})}
+            />
         </View>
 
     )
