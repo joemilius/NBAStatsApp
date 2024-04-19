@@ -27,6 +27,13 @@ import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-nati
             }
         }
 
+        const player1List = playerStats.filter(player => {
+            if(player["Name"].toLowerCase().includes(search1.toLowerCase())) return player
+        })
+
+        
+
+
         return(
             <View>
                 <View>
