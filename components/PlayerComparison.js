@@ -35,6 +35,16 @@ import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-nati
             if(player["Name"].toLowerCase().includes(search2.toLowerCase())) return player
         })
 
+        const player1Render = player1List.slice(0,5).map(player => {
+            return(
+                <View>
+                    <Text>{player["Name"]}</Text>
+                    <Pressable>
+                        <Text>Choose</Text>
+                    </Pressable>
+                </View>
+            )
+        })
 
         return(
             <View>
