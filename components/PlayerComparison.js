@@ -46,17 +46,31 @@ import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-nati
             )
         })
 
+        const player2Render = player2List.slice(0,5).map(player => {
+            return(
+                <View>
+                    <Text>{player["Name"]}</Text>
+                    <Pressable>
+                        <Text>Choose</Text>
+                    </Pressable>
+                </View>
+            )
+        })
+
         return(
             <View>
                 <View>
-                    <Text>Player 1</Text>
-                    <TextInput onChangeText={(text) => handleInputs(text, "player1")}/>
+                    <View>
+                        <Text>Player 1</Text>
+                        <TextInput onChangeText={(text) => handleInputs(text, "player1")}/>
+                        {player1Render}
+                    </View>
+                    <View>
+                        <Text>Player 2</Text>
+                        <TextInput onChangeText={(text) => handleInputs(text, "player2")}/>
+                        {player2Render}
+                    </View>
                 </View>
-                <View>
-                    <Text>Player 2</Text>
-                    <TextInput onChangeText={(text) => handleInputs(text, "player2")}/>
-                </View>
-
             </View>
         )
     }
