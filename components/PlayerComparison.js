@@ -27,6 +27,14 @@ import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-nati
             }
         }
 
+        function handlePlayerChoice(playerObj, playerInput){
+            if(playerInput === 'player1' && playerObj !== player2){
+                setPlayer1(playerObj)
+            }else if (playerInput === 'player2' && playerObj !== player1){
+                setPlayer2(playerObj)
+            }
+        }
+
         const player1List = playerStats.filter(player => {
             if(player["Name"].toLowerCase().includes(search1.toLowerCase())) return player
         })
@@ -39,7 +47,7 @@ import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-nati
             return(
                 <View>
                     <Text>{player["Name"]}</Text>
-                    <Pressable>
+                    <Pressable onPress={(e) => handlePlayerChoice(player, 'player1')}>
                         <Text>Choose</Text>
                     </Pressable>
                 </View>
@@ -50,7 +58,7 @@ import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-nati
             return(
                 <View>
                     <Text>{player["Name"]}</Text>
-                    <Pressable>
+                    <Pressable onPress={(e) => handlePlayerChoice(player, 'player2')}>
                         <Text>Choose</Text>
                     </Pressable>
                 </View>
