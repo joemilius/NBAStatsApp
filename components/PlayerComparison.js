@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-native';
+import PlayerComparisonCard from './PlayerComparisonCard'
 
 
 
     export default function PlayerComparison(){
         const [playerStats, setPlayerStats] = useState([])
-        const [player1, setPlayer1] = useState({})
-        const [player2, setPlayer2] = useState({})
+        const [player1, setPlayer1] = useState(null)
+        const [player2, setPlayer2] = useState(null)
         const [search1, setSearch1] = useState('')
         const [search2, setSearch2] = useState('')
 
@@ -32,6 +33,8 @@ import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-nati
                 setPlayer1(playerObj)
             }else if (playerInput === 'player2' && playerObj !== player1){
                 setPlayer2(playerObj)
+            }else{
+                
             }
         }
 
@@ -71,12 +74,20 @@ import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-nati
                     <View>
                         <Text>Player 1</Text>
                         <TextInput onChangeText={(text) => handleInputs(text, "player1")}/>
-                        {player1Render}
+                        {player1
+                        ? 
+                        <PlayerComparisonCard player={player1}/>
+                        :
+                        player1Render}
                     </View>
                     <View>
                         <Text>Player 2</Text>
                         <TextInput onChangeText={(text) => handleInputs(text, "player2")}/>
-                        {player2Render}
+                        {player2
+                        ? 
+                        <PlayerComparisonCard player={player2}/>
+                        :
+                        player2Render}
                     </View>
                 </View>
             </View>
