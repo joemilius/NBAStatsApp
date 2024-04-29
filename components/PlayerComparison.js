@@ -38,6 +38,14 @@ import PlayerComparisonCard from './PlayerComparisonCard'
             }
         }
 
+        function handlePickNew(player){
+            if(player === 'player1'){
+                setPlayer1(null)
+            }else{
+                setPlayer2(null)
+            }
+        }
+
         const player1List = playerStats.filter(player => {
             if(player["Name"].toLowerCase().includes(search1.toLowerCase())) return player
         })
@@ -76,7 +84,7 @@ import PlayerComparisonCard from './PlayerComparisonCard'
                         <TextInput onChangeText={(text) => handleInputs(text, "player1")}/>
                         {player1
                         ? 
-                        <PlayerComparisonCard player={player1}/>
+                        <PlayerComparisonCard player={player1} handlePickNew={handlePickNew} section={'player1'}/>
                         :
                         player1Render}
                     </View>
@@ -85,7 +93,7 @@ import PlayerComparisonCard from './PlayerComparisonCard'
                         <TextInput onChangeText={(text) => handleInputs(text, "player2")}/>
                         {player2
                         ? 
-                        <PlayerComparisonCard player={player2}/>
+                        <PlayerComparisonCard player={player2} handlePickNew={handlePickNew} section={'player2'}/>
                         :
                         player2Render}
                     </View>
