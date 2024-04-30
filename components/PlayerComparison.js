@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-native';
 import PlayerComparisonCard from './PlayerComparisonCard'
 
-
+{/* <a href="https://www.freepik.com/search">Icon by amoghdesign</a> */}
 
     export default function PlayerComparison(){
         const [playerStats, setPlayerStats] = useState([])
@@ -87,6 +87,13 @@ import PlayerComparisonCard from './PlayerComparisonCard'
                         <PlayerComparisonCard player={player1} handlePickNew={handlePickNew} section={'player1'}/>
                         :
                         player1Render}
+                    </View>
+                    <View>
+                        {player1["Points"] === player2["Points"] ? <Text>🟰</Text>: player1["Points"] > player2["Points"] ? <Text>⬅️</Text> : <Text>➡️</Text>}
+                        {player1["Rebounds"] === player2["Rebounds"] ? <Text>🟰</Text>: player1["Rebounds"] > player2["Rebounds"] ? <Text>⬅️</Text> : <Text>➡️</Text>}
+                        {player1["Assists"] === player2["Assists"] ? <Text>🟰</Text>: player1["Assists"] > player2["Assists"] ? <Text>⬅️</Text> : <Text>➡️</Text>}
+                        {player1["BlockedShots"] === player2["BlockedShots"] ? <Text>🟰</Text>: player1["BlockedShots"] > player2["BlockedShots"] ? <Text>⬅️</Text> : <Text>➡️</Text>}
+                        {player1["Steals"] === player2["Steals"] ? <Text>🟰</Text>: player1["Steals"] > player2["Steals"] ? <Text>⬅️</Text> : <Text>➡️</Text>}
                     </View>
                     <View>
                         <Text>Player 2</Text>
