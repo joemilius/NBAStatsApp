@@ -1,13 +1,28 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-native';
 import PlayerComparisonCard from './PlayerComparisonCard'
+import {NBA_API_KEY} from '@env'
 
 {/* <a href="https://www.freepik.com/search">Icon by amoghdesign</a> */}
 
     export default function PlayerComparison(){
         const [playerStats, setPlayerStats] = useState([])
-        const [player1, setPlayer1] = useState(null)
-        const [player2, setPlayer2] = useState(null)
+        const [player1, setPlayer1] = useState({
+            "Name": '',
+            "Points":0,
+            "Rebounds":0,
+            "Assists":0,
+            "Steals":0,
+            "BlockedShots":0
+        })
+        const [player2, setPlayer2] = useState({
+            "Name": '',
+            "Points":0,
+            "Rebounds":0,
+            "Assists":0,
+            "Steals":0,
+            "BlockedShots":0
+        })
         const [search1, setSearch1] = useState('')
         const [search2, setSearch2] = useState('')
 
@@ -40,9 +55,23 @@ import PlayerComparisonCard from './PlayerComparisonCard'
 
         function handlePickNew(player){
             if(player === 'player1'){
-                setPlayer1(null)
+                setPlayer1({
+                    "Name": '',
+                    "Points":0,
+                    "Rebounds":0,
+                    "Assists":0,
+                    "Steals":0,
+                    "BlockedShots":0
+                })
             }else{
-                setPlayer2(null)
+                setPlayer2({
+                    "Name": '',
+                    "Points":0,
+                    "Rebounds":0,
+                    "Assists":0,
+                    "Steals":0,
+                    "BlockedShots":0
+                })
             }
         }
 
@@ -78,11 +107,11 @@ import PlayerComparisonCard from './PlayerComparisonCard'
 
         return(
             <View>
-                <View>
+                <View style={comparisonStyles.comparisonContainer}>
                     <View>
                         <Text>Player 1</Text>
-                        <TextInput onChangeText={(text) => handleInputs(text, "player1")}/>
-                        {player1
+                        <TextInput style={comparisonStyles.comparisonInput} onChangeText={(text) => handleInputs(text, "player1")}/>
+                        {player1["Name"] !== ''
                         ? 
                         <PlayerComparisonCard player={player1} handlePickNew={handlePickNew} section={'player1'}/>
                         :
@@ -97,8 +126,8 @@ import PlayerComparisonCard from './PlayerComparisonCard'
                     </View>
                     <View>
                         <Text>Player 2</Text>
-                        <TextInput onChangeText={(text) => handleInputs(text, "player2")}/>
-                        {player2
+                        <TextInput style={comparisonStyles.comparisonInput} onChangeText={(text) => handleInputs(text, "player2")}/>
+                        {player2["Name"] !== ''
                         ? 
                         <PlayerComparisonCard player={player2} handlePickNew={handlePickNew} section={'player2'}/>
                         :
@@ -108,3 +137,13 @@ import PlayerComparisonCard from './PlayerComparisonCard'
             </View>
         )
     }
+
+    const comparisonStyles = StyleSheet.create({
+        comparisonContainer: {
+            flexDirection: 'row'
+        },
+        comparisonInput: {
+            borderColor: 'blue',
+            borderWidth: 2
+        }
+    })
